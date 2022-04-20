@@ -1,9 +1,24 @@
+import java.time.LocalDate
 
-println "configuration"
-println "gradle id: ${gradle.hashCode()}"
-println "hashCode: ${hashCode()}"
-println "root: ${rootProject.hashCode()}, ${project.hashCode()}, ${gradle.rootProject.hashCode()}"
-println gradle.taskGraph.allTasks
+ext {
+    javaVersion = 16
+    currentDate = LocalDate.now()
+}
+
+println ext.javaVersion
+println ext.currentDate
+println project.ext.javaVersion
+println javaVersion
+
+println "------ All properties: $project.properties"
+println "---- System: "
+println System.getProperty("sys.example")
+
+//        > Configure project :
+//16
+//2022-04-20
+//16
+//16
 
 task hello(description: "Hello task", group: "dmdev", type: DefaultTask) {
     println "configuration phase. Task hello"
@@ -21,7 +36,7 @@ task hello(description: "Hello task", group: "dmdev", type: DefaultTask) {
     println "path task: $path"
 }
 
-task first (group: "dmdev"){
+task first(group: "dmdev") {
     doLast {
         println "Task 1"
     }
