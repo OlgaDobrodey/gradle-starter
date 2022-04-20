@@ -1,0 +1,1 @@
+apply from: 'script.gradle'  //path for script
