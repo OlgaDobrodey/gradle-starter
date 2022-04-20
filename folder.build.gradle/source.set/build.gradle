@@ -1,3 +1,4 @@
+
 plugins {
     id 'java'
 }
@@ -5,7 +6,7 @@ plugins {
 apply from: 'script.gradle'
 apply plugin: CustomPlugin //cmd -> gradle hello
 
-
+//https://docs.gradle.org/current/userguide/java_plugin.html
 sourceSets {
     main{
         java{
@@ -13,7 +14,7 @@ sourceSets {
             srcDirs = ['src/java']
         }
         resources{
-
+            
         }
 
     }
