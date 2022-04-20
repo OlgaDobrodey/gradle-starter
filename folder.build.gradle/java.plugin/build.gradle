@@ -3,3 +3,4 @@ plugins {
 }
 
 //apply plugin: 'java' --old variable
+//https://docs.gradle.org/current/userguide/java_plugin.html
