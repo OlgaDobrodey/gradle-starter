@@ -1,1 +1,1 @@
-apply from: 'script.gradle'  //path for script
+apply from: 'script.gradle'  //path for scrip
