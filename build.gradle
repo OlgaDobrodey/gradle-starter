@@ -4,7 +4,7 @@ plugins {
 
 apply from: 'script.gradle'
 apply plugin: CustomPlugin //cmd -> gradle hello
-apply plugin: 'java'
+//apply plugin: 'java'
 
 //buildSrc -- id 'custom' ->
 // apply plugin: 'custom'
