@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+apply from: 'script.gradle'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    Configuration configurationImpl = getByName("implementation")
+    dmdev {
+        description = "dmdev configuration"
+    }
+    configurationImpl.extendsFrom(dmdev)
+}
+
+dependencies {
+    implementation("org.springframework:spring-webmvc:5.3.9")
+    implementation('org.springframework:spring-aop:5.3.8') 
+}
+
+jar {
+    def jars = configurations.runtimeClasspath.files.collect { "lib/$it.name" }
+
+    manifest {
+        attributes 'Main-Class': 'com.itrex.HelloWorld',
+                'Class-Path': jars.join(' ')
+    }
+}
+
+task copyAllDependecies(type: Copy) {
+    from(configurations.runtimeClasspath.files)
+    into("$buildDir/libs/lib")
+}
+
+jar.dependsOn copyAllDependecies
