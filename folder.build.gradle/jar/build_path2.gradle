@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'war'
 }
 
 apply from: 'script.gradle'
@@ -18,7 +19,7 @@ configurations {
 
 dependencies {
     implementation("org.springframework:spring-webmvc:5.3.9")
-    implementation('org.springframework:spring-aop:5.3.8') 
+    implementation('org.springframework:spring-aop:5.3.8')
 }
 
 jar {
