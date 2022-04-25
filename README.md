@@ -1,0 +1,1 @@
+gradle :datebase:assemble
