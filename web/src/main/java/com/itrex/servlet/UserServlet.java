@@ -21,6 +21,8 @@ public class UserServlet extends HttpServlet {
         resp.setContentType("text/html");
 
         PrintWriter writer = resp.getWriter();
-        userService.getAll().forEach(user -> writer.write(String.format("<h1>%d: %s</h1>",user.getId(), StringUtils.trim(user.getName()))));
+        userService.getAll().forEach(user -> writer.write("""
+                <h1>%d: %s</h1>
+                """.formatted(user.id(), StringUtils.trim(user.name()))));
     }
 }
