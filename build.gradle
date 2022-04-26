@@ -1,7 +1,29 @@
+import org.apache.commons.lang3.StringUtils
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+        classpath 'org.apache.commons:commons-lang3:3.12.0'
+    }
+}
+
 plugins {
     id 'java'
     id 'war'
 }
+
+allprojects {
+    group StringUtils.capitalize('itrex')
+    repositories {        //не надо дублировать в других проектах
+        mavenCentral()
+    }
+}
+
+subprojects {} // для всех под проектов не очнь практика
 
 java {
     sourceCompatibility = JavaVersion.VERSION_16
@@ -9,10 +31,6 @@ java {
 }
 
 apply from: 'script.gradle'
-
-repositories {
-    mavenCentral()
-}
 
 configurations {
     Configuration configurationImpl = getByName("implementation")

@@ -1,6 +1,11 @@
+//import com.itrex.plugin.CustomPlugin
+
 plugins {
     id 'java-library'
+    id 'jacoco'
+    id 'custom-itrex'
 }
+//apply plugin: CustomPlugin
 
 version 'unspecified'
 
@@ -15,5 +20,8 @@ dependencies {
 }
 
 test {
+    maxParallelForks 3  //do tests in 3 different treads
     useJUnitPlatform()
 }
+test.finalizedBy jacocoTestReport
+jacocoTestReport.dependsOn test
