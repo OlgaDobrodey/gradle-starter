@@ -5,6 +5,19 @@ ext {
     currentDate = LocalDate.now()
 }
 
+
+println ext.javaVersion
+println project.ext.javaVersion
+println javaVersion
+println project.javaVersion
+//println project."projectParam1"
+println "---- All properties:"
+println project.properties
+println "---- System: "
+println System.getProperty("sys.example")
+
+//gradle.taskGraph.allTasks
+
 task first {
     doLast {
         println "Task 1"
@@ -37,6 +50,7 @@ task fourth(group: "dmdev") {
 fourth.dependsOn first
 fourth.dependsOn second
 fourth.dependsOn third
+
 
 first.mustRunAfter second
 //second.shouldRunAfter first
